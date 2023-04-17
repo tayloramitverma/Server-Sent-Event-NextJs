@@ -22,7 +22,7 @@ function sendUpdates(req, res) {
     if (batch.length > 0) {
       res.write(`data: ${JSON.stringify(batch)}\n\n`);
       index += batchSize;
-      setTimeout(sendBatch, 1000); // Send next batch after a delay
+      setTimeout(sendBatch, 5000); // Send next batch after a delay
     }
   };
 

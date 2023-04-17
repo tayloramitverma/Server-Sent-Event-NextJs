@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 function Index() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     // Set up SSE connection
-    const eventSource = new EventSource('/api/sse');
+    const eventSource = new EventSource("/api/sse");
 
     // Handle incoming SSE messages
     eventSource.onmessage = (event) => {
@@ -21,6 +22,7 @@ function Index() {
 
   return (
     <div>
+      <Link href="/about">Go to About Us</Link>
       {items.map((item) => (
         <p key={item.id}>{item.message}</p>
       ))}
